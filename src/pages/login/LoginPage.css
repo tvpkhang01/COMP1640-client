@@ -1,72 +1,90 @@
-.container {
+/* Trong file LoginPage.css */
+
+.LoginPage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  justify-content: center;
+  height: 100vh;
 }
 
-.welcome-text {
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 50px;
+h1 {
+  font-size: 25px; /* Điều chỉnh kích thước phù hợp với ô text field */
+  margin-bottom: 20px; /* Điều chỉnh khoảng cách dưới tiêu đề */
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  border-radius: 5px;
-}
-
-.input-container {
+.LoginPage h1 {
   margin-bottom: 20px;
-  width: 100%;
 }
 
-.input-container label {
-  display: block;
+.LoginPage label {
   margin-bottom: 10px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.input-container input {
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
   width: 100%;
+  max-width: 300px;
+  text-align: left;
 }
 
-.login-button {
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 5px;
+.LoginPage input,
+.LoginPage select {
+  width: 100%;
+  max-width: 350px; /* Điều chỉnh chiều rộng tối đa của ô input */
+  padding: 17px; /* Điều chỉnh kích thước padding để phóng to ô input */
+  margin-bottom: 7px; /* Tăng khoảng cách giữa các ô input */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Điều chỉnh giá trị border-radius để bo tròn thêm ô input */
+}
+
+.LoginPage button {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background-color: black;
   color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.LoginPage .forgot-password {
+  margin-bottom: 20px;
+}
+
+/* Chỉnh sửa cho nút đăng ký */
+ .register-button {
+  width: fit-content;
+  text-decoration: underline; /* Gạch chân */
+  color: rgb(170, 163, 163); /* Màu chữ của nút đăng ký */
+  background-color: transparent; /* Nền trong suốt */
+  border: none;
+  padding: 0; /* Loại bỏ padding */
   margin-bottom: 20px;
   cursor: pointer;
-  width: 100%;
 }
 
-.register-button {
-  background-color: #428bca;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 20px;
+.register-button:hover {
+  color: #afbac7; /* Màu chữ khi di chuột vào */
+}
+
+.line {
   width: 100%;
+  max-width: 350px;
+  height: 1px;
+  background-color: #b7b2b2;
+  margin-bottom: 20px;
+  opacity: 0.5; /* Điều chỉnh độ mờ của đường gạch ngang */
+}
+
+.background-image {
+  position: fixed; /* Giữ nó ở vị trí cố định khi cuộn trang */
+  top: 0;
+  left: -15;
+  width: 100%;
+  height: 53%;
+  z-index: -1; /* Đặt z-index thấp hơn để đặt nó phía sau nội dung */
+  background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ phần tử */
+  background-image: url('https://res.cloudinary.com/dh6dvndzn/image/upload/v1709633495/imgLogin.png');
+  opacity: 0.7; /* Điều chỉnh độ trong suốt của hình nền */
 }
