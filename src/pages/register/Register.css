@@ -68,7 +68,7 @@ h1 {
 }
 
 .login-link a {
-  color: #afbac7;
+  color: rgb(170, 163, 163);
   text-decoration: underline;
 }
 .line {
@@ -83,7 +83,7 @@ h1 {
   content: '';
   position: fixed;
   top: 0;
-  left: -190px; 
+  left: -190px;
   width: 125%;
   height: 56%;
   z-index: -1;
@@ -91,4 +91,22 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-image: url('https://res.cloudinary.com/dh6dvndzn/image/upload/v1709633495/imgLogin.png');
+  display: block; /* Hiển thị background mặc định */
+}
+
+@media only screen and (max-width: 600px) {
+  /* Ẩn background khi kích thước màn hình nhỏ */
+  h1 {
+    font-size: 20px;
+  }
+
+  .Register input,
+  .Register select,
+  .Register button {
+    max-width: 100%;
+  }
+
+  .Register::before {
+    display: none;
+  }
 }

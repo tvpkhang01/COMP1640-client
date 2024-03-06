@@ -89,5 +89,33 @@ h1 {
   height: 56%;
   z-index: -1;
   background-size: cover;
+  background-position: center;
   background-image: url('https://res.cloudinary.com/dh6dvndzn/image/upload/v1709633495/imgLogin.png');
+}
+.background-image-hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .LoginPage input,
+  .LoginPage select,
+  .LoginPage button,
+  .register-button {
+    max-width: 100%;
+  }
+
+  /* Ẩn background khi kích thước màn hình nhỏ */
+  .background-image {
+    height: 100%;
+    display: none; /* Ẩn background */
+  }
+
+  /* Hiển thị background ở trạng thái màn hình lớn */
+  .background-image.large-screen {
+    display: block;
+  }
 }
