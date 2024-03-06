@@ -1,72 +1,94 @@
-.registration-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
-  }
+/* Trong file Register.css */
+
+.Register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   
-  .registration-text {
-    font-size: 50px;
-    font-weight: bold;
-    margin-bottom: 50px;
-  }
-  
-  .registration-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 400px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    border-radius: 5px;
-  }
-  
-  .input-container {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-  
-  .input-container label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .input-container input {
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-  }
-  
-  .register-button {
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .back-to-login-button {
-    background-color: #428bca;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 20px;
-    width: 100%;
-  }
+}
+
+h1 {
+  font-size: 25px; 
+  margin-bottom: 20px;
+  margin-top: 130px;
+  font: 1em sans-serif;
+}
+
+.Register h1 {
+  margin-bottom: 20px;
+}
+
+.Register label {
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+
+.Register input,
+.Register select {
+  width: 100%;
+  max-width: 350px;
+  padding: 17px;
+  margin-bottom: 7px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  opacity: 0.8; 
+}
+
+.Register button {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.Register .forgot-password {
+  margin-bottom: 20px;
+}
+
+ .register-button {
+  width: fit-content;
+  text-decoration: underline; 
+  color: rgb(170, 163, 163); 
+  background-color: transparent; 
+  border: none;
+  padding: 0; 
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.login-link a {
+  color: #afbac7;
+  text-decoration: underline;
+}
+.line {
+  width: 100%;
+  max-width: 350px;
+  height: 1px;
+  background-color: #b7b2b2;
+  margin-bottom: 20px;
+  opacity: 0.5; 
+}
+.Register::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: -190px; 
+  width: 125%;
+  height: 56%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('https://res.cloudinary.com/dh6dvndzn/image/upload/v1709633495/imgLogin.png');
+}
