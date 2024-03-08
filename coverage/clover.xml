@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1709871236112" clover="3.2.0">
+  <project timestamp="1709871236112" name="All files">
+    <metrics statements="25" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="2" elements="39" coveredelements="6" complexity="0" loc="25" ncloc="25" packages="5" files="8" classes="8"/>
+    <package name="pages">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="ErrorPage.jsx" path="D:\COMP1640-client\src\pages\ErrorPage.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+      <file name="Login.jsx" path="D:\COMP1640-client\src\pages\Login.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.admin">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="AdminHome.jsx" path="D:\COMP1640-client\src\pages\admin\AdminHome.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.admin.semester">
+      <metrics statements="20" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="2"/>
+      <file name="CreateSemester.jsx" path="D:\COMP1640-client\src\pages\admin\semester\CreateSemester.jsx">
+        <metrics statements="14" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+      </file>
+      <file name="DetailSemester.jsx" path="D:\COMP1640-client\src\pages\admin\semester\DetailSemester.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+      </file>
+      <file name="ReadSemester.jsx" path="D:\COMP1640-client\src\pages\admin\semester\ReadSemester.jsx">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.admin.user">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="ReadUser.jsx" path="D:\COMP1640-client\src\pages\admin\user\ReadUser.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.home">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Home.jsx" path="D:\COMP1640-client\src\pages\home\Home.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
