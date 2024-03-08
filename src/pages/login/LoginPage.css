@@ -1,0 +1,132 @@
+
+.LoginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 25px; 
+  margin-bottom: 20px;
+  margin-top: 110px;
+  font: 1em sans-serif;
+}
+
+.LoginPage h1 {
+  margin-bottom: 20px;
+}
+
+.LoginPage label {
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+
+.LoginPage input,
+.LoginPage select {
+  width: 100%;
+  width: 100%;
+  max-width: 350px;
+  padding: 17px;
+  margin-bottom: 7px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  opacity: 0.8; 
+}
+
+.LoginPage button {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.LoginPage .forgot-password {
+  margin-bottom: 20px;
+}
+
+
+ .register-button {
+  width: fit-content;
+  text-decoration: underline; 
+  color: rgb(170, 163, 163); 
+  background-color: transparent; 
+  border: none;
+  padding: 0; 
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  color: #afbac7; 
+}
+
+.line {
+  width: 100%;
+  max-width: 350px;
+  height: 1px;
+  background-color: #b7b2b2;
+  margin-bottom: 20px;
+  opacity: 0.5; 
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: -190px; 
+  width: 125%;
+  height: 56%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dh6dvndzn/image/upload/v1709633495/imgLogin.png');
+}
+.background-image-hidden {
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .LoginPage input,
+  .LoginPage select,
+  .LoginPage button,
+  .register-button {
+    max-width: 100%;
+  }
+  .line {
+    display: none; 
+    width: 100%;
+    max-width: 350px;
+    height: 1px;
+    background-color: #b7b2b2;
+    margin-bottom: 20px;
+    opacity: 0.5;
+    display: none;
+  }
+
+  .background-image {
+    height: 100%;
+    display: none; 
+  }
+
+  .background-image.large-screen {
+    display: block;
+  }
+
+
+}
