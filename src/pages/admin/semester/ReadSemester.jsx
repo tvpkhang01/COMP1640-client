@@ -3,19 +3,33 @@ import { MoreOutlined } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom";
 import React from "react";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 function ReadSemester() {
   const navigate = useNavigate();
+  const goHome = () => {
+    navigate("/admin");
+  };
+  const goSemester = () => {
+    navigate("/admin/semester");
+  };
   return (
     <>
       <Breadcrumb
         items={[
           {
-            title: "Home",
+            title: (
+              <Text style={{ cursor: "pointer" }} onClick={goHome}>
+                Home
+              </Text>
+            ),
           },
           {
-            title: "Semester",
+            title: (
+              <Text style={{ cursor: "pointer" }} onClick={goSemester}>
+                Semester
+              </Text>
+            ),
           },
         ]}
       />

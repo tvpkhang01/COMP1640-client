@@ -1,75 +1,66 @@
-import { createBrowserRouter, Outlet } from "react-router-dom";
-import Login from "../pages/login/Login";
-import ErrorPage from "../pages/ErrorPage";
-import MainLayout from "../components/layout/MainLayout";
-import AdminLayout from "../components/layout/AdminLayout"
-import Home from "../pages/home/Home";
-import ReadSemester from "../pages/admin/semester/ReadSemester";
-import AdminHome from "../pages/admin/AdminHome";
-import ReadUser from "../pages/admin/user/ReadUser";
-import CreateSemester from "../pages/admin/semester/CreateSemester";
-import DetailSemester from "../pages/admin/semester/DetailSemester";
+import { createBrowserRouter, Outlet } from 'react-router-dom';
+import Login from '../pages/login/Login';
+import ErrorPage from '../pages/ErrorPage';
+import MainLayout from '../components/layout/MainLayout';
+import Home from '../pages/home/Home';
+import ReadSemester from '../pages/admin/semester/ReadSemester';
+import AdminHome from '../pages/admin/AdminHome';
+import ReadUser from '../pages/admin/user/ReadUser';
+import CreateSemester from '../pages/admin/semester/CreateSemester';
+import DetailSemester from '../pages/admin/semester/DetailSemester';
 
 const Router = createBrowserRouter([
-  {
-    path: "",
-    element: <Outlet />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        element: <MainLayout />,
-        children: [
-          {
-            path: "",
-            element: <Home />,
-          },
-        ],
-      },
-      {
-        path: "login",
-        element: <Login />,
-      },
-			
-    ],
-  },
 	{
-		path: "admin",
+		path: '',
 		element: <Outlet />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
-				element: <AdminLayout />,
+				element: <MainLayout />,
 				children: [
 					{
-						path: "",
-						element: <AdminHome />
+						path: '',
+						element: <Home />,
 					},
 					{
-						path: "user",
-						element: <ReadUser />
-					},
-					{
-						path: "semester",
+						path: 'admin',
 						children: [
 							{
-								path: "",
-								element: <ReadSemester />
+								path: '',
+								element: <AdminHome />,
 							},
 							{
-								path: "create",
-								element: <CreateSemester />
+								path: 'user',
+								element: <ReadUser />,
 							},
 							{
-								path: "semesterId",
-								element: <DetailSemester />
-							}
-						]
-					}
-				]
+								path: 'semester',
+								children: [
+									{
+										path: '',
+										element: <ReadSemester />,
+									},
+									{
+										path: 'create',
+										element: <CreateSemester />,
+									},
+									{
+										path: 'semesterId',
+										element: <DetailSemester />,
+									},
+								],
+							},
+						],
+					},
+				],
 			},
-			
-		]
-	}
-
+			{
+				path: 'login',
+				element: <Login />,
+			},
+		],
+	},
+	
 ]);
 
 export default Router;
