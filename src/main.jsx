@@ -1,15 +1,15 @@
-import React, {Suspense} from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider } from "react-router-dom";
-import axios from  "axios";
+import React, { Suspense } from 'react';
+import ReactDOM from 'react-dom';
+import { RouterProvider } from 'react-router-dom';
+import axios from 'axios';
 import Router from './routers/Router';
 
-
-axios.defaults.baseURL = "http://localhost:3000/";
+axios.defaults.baseURL = 'http://localhost:3000/';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Suspense>
-      <RouterProvider router={ Router } />
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={Router} />
     </Suspense>
   </React.StrictMode>,
-)
+  document.getElementById('root')
+);
