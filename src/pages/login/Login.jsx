@@ -30,7 +30,7 @@ function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your Email"
-              style={{ width: '80%', maxWidth: '350px', padding: '15px', marginBottom: '10px', boxSizing: 'border-box', border: '1px solid #ccc', borderRadius: '10px', opacity: '0.8' }}
+              style={{ width: '100%', maxWidth: '350px', padding: '15px', marginBottom: '10px', boxSizing: 'border-box', border: '1px solid #ccc', borderRadius: '10px', opacity: '0.8' }}
             />
           </Col>
           
