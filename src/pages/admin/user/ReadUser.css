@@ -1,0 +1,51 @@
+.input-container {
+    display: flex;
+    justify-content: center; /* Căn giữa trên trục ngang */
+}
+
+.custom-input {
+    width: 600px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: gainsboro;
+}
+
+.ant-input-prefix svg {
+    font-size: 20px; /* Đổi kích thước của biểu tượng search */
+    margin: 10px; /* Khoảng cách giữa biểu tượng và input */
+}
+
+.ant-input-outlined:hover {
+    border-color: gainsboro;
+    background-color: #ffffff;
+}
+
+.custom-flex{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    gap: 13px;
+    border-radius: 10px;
+}
+
+.ant-btn {
+    font-size: 14px;
+    line-height: 1.5714285714285714;
+    height: 32px;
+    padding: 4px 15px;
+    border-radius: 10px;
+}
+
+.custom-flex .selected {
+    background-color: black; /* Đổi màu nền khi nút được chọn */
+    color: white; /* Đổi màu chữ khi nút được chọn */
+}
+
+.add-user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 40px;
+    font-size: 15px;
+}
