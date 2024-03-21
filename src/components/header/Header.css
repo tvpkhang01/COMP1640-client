@@ -1,0 +1,196 @@
+.Container{
+    height: 80px;
+    width: 100%;
+    /* background-color: #333; */
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.Left{
+    flex: 3;
+}
+
+.Logo{
+    font-size: 40px;
+    margin-left: 50%;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.Logo img {
+    width: 40px; /* Kích thước của hình logo */
+    height: auto; /* Tự động điều chỉnh chiều cao theo tỷ lệ */
+    margin-right: 5px; /* Khoảng cách giữa chữ và hình logo */
+    /* background-color: black; */
+}
+
+.Center{
+    flex: 1.5;
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Home,
+.Search,
+.More,
+.Person {
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.Home:hover,
+.Search:hover,
+.More:hover,
+.Person:hover {
+    /* background-color: #333; */
+    background-color: darkgray;
+    border-radius: 5px; /* Bo tròn góc khi hover (tuỳ chọn) */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển động */
+    transform: scale(1.2);
+    color: white; /* Màu chữ khi hover */
+    padding: 17px;
+}
+
+.Right{
+    flex: 3;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+    color: #333;
+    cursor: pointer;
+}
+
+.MenuContent {
+    position: absolute;
+    top: 60px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 15px;
+}
+
+.ant-dropdown .ant-dropdown-menu{
+    max-width: 400px;
+    padding: 10px;
+    list-style-type: none;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border-radius: 15px;
+    outline: none;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+}
+
+.Right:hover .MenuContent {
+    visibility: visible;
+    opacity: 1;
+}
+.reponsiveDD{
+  display: none;
+}
+.noneReponsiveDD{
+  display: flex;
+}
+
+/* Responsive cho điện thoại */
+@media screen and (max-width: 576px) {
+  .Container {
+    flex-direction: column; /* Thay đổi từ column sang row */
+    justify-content: space-between; 
+    height: 100%;
+  }
+  
+  .Logo {
+    font-size: 40px;
+    margin: 0 auto;
+    position: sticky;
+    left: 45%;
+  }
+
+  .Left{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .reponsiveDD{
+    display:flex;
+    font-size: 30px;
+  }
+
+  .noneReponsiveDD{
+    display: none ;
+  }
+  
+  .Center {
+    flex: initial;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0% 10% 5% 10%;
+  }
+
+  .Home,
+  .Search,
+  .More,
+  .Person {
+    font-size: 25px;
+    align-self: flex-end;
+  }
+
+  .Home:hover,
+  .Search:hover,
+  .More:hover,
+  .Person:hover {
+    background-color: darkgray;
+    border-radius: 5px; /* Bo tròn góc khi hover (tuỳ chọn) */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển động */
+    transform: scale(1.2);
+    color: white; /* Màu chữ khi hover */
+    padding: 10px;
+  }
+}
+  
+/* Responsive cho máy tính xách tay và máy tính để bàn */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .Logo {
+    font-size: 40px;
+    margin-left: 0%;
+  }
+
+  .Center {
+    flex: initial;
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Home,
+  .Search,
+  .More,
+  .Person {
+    font-size: 30px;
+  }
+
+  .Right {
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
