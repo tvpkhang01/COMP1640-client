@@ -25,5 +25,6 @@ module.exports = {
 			{ allowConstantExport: true },
 		],
 		'no-underscore-dangle': 0,
+		'react/prop-types': 'off',
 	},
 };

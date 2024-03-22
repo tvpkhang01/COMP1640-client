@@ -1,11 +1,18 @@
 import { Breadcrumb, Button, Card, Col, Row, Space, Typography } from "antd";
 import { MoreOutlined } from "@ant-design/icons"
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
+import CreateSemester from "./CreateSemester";
 
 const { Title, Text } = Typography;
 
 function ReadSemester() {
+  const [isSemesterModalOpen, setIsSemesterModalOpen] = useState(false);
+
+  const handleCloseSemesterModal = () => {
+    setIsSemesterModalOpen(false);
+  };
+
   const navigate = useNavigate();
   const goHome = () => {
     navigate("/admin");
@@ -35,8 +42,12 @@ function ReadSemester() {
       />
       <Title level={2}>Semester</Title>
       <Button onClick={() => {
-        navigate("create");
+        setIsSemesterModalOpen(true)
       }}>Create new Semester</Button>
+      <CreateSemester
+        isSemesterModalOpen={isSemesterModalOpen}
+        setIsSemesterModalOpen={setIsSemesterModalOpen}
+        onCancel={handleCloseSemesterModal}/>
       <Row gutter={10}>
         <Col span={24}>
           <Card >

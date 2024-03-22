@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Typography, Input, Button, Select, Divider } from 'antd';
-import './LoginPage.css';
+import './Login.css';
 
 const { Title } = Typography;
 const { Option } = Select;

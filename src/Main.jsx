@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import axios from 'axios';
 import Router from './routers/Router';
@@ -10,6 +10,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Suspense fallback={<div>Loading...</div>}>
       <RouterProvider router={Router} />
     </Suspense>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
