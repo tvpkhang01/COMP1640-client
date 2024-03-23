@@ -1,11 +1,12 @@
 .Container{
     height: 80px;
     width: 100%;
-    /* background-color: #333; */
     display: flex;
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 100;
+    background-color: #ffffff;
 }
 
 .Left{
@@ -32,6 +33,7 @@
     display: flex;  
     justify-content: space-between;
     align-items: center;
+    position: sticky;
 }
 
 .Home,
@@ -171,6 +173,7 @@
   .Logo {
     font-size: 40px;
     margin-left: 0%;
+    padding: 0 10px;
   }
 
   .Center {
@@ -192,5 +195,6 @@
     flex: 3;
     display: flex;
     justify-content: flex-end;
+    padding: 0 10px;
   }
 }
