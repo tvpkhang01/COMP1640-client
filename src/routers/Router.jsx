@@ -8,6 +8,7 @@ import AdminHome from '../pages/admin/AdminHome';
 import ReadUser from '../pages/admin/user/ReadUser';
 import CreateSemester from '../pages/admin/semester/CreateSemester';
 import DetailSemester from '../pages/admin/semester/DetailSemester';
+import MaketingHome from '../pages/maketingmanager/MaketingHome';
 
 const Router = createBrowserRouter([
 	{
@@ -21,6 +22,10 @@ const Router = createBrowserRouter([
 					{
 						path: '',
 						element: <Home />,
+					},
+					{
+						path: 'maketingmanager',
+						element: <MaketingHome />,
 					},
 					{
 						path: 'admin',
@@ -58,6 +63,7 @@ const Router = createBrowserRouter([
 				path: 'login',
 				element: <Login />,
 			},
+			
 		],
 	},
 	
