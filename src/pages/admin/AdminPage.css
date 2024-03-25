@@ -1,0 +1,11 @@
+/* CSS */
+@media screen and (max-width: 768px) {
+    .responsive-title {
+      font-size: 24px;
+    }
+  
+    .responsive-text {
+      font-size: 14px;
+    }
+  }
+  
