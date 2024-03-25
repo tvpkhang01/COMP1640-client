@@ -28,21 +28,12 @@
   text-align: center;
 }
 
-.line {
-  width: calc(100% - 100px); 
-  height: 1px;
-  background-color: #b7b2b2;
-  margin-bottom: 20px;
-  opacity: 0.5;
-}
-
-
 .background-image {
   position: fixed;
   top: 0;
-  left: -190px;
+  left: -179px;
   width: 130%;
-  height: 56%;
+  height: 60%;
   z-index: -1;
   background-size: cover;
   background-position: center;
@@ -60,9 +51,6 @@
     max-width: 100%;
   }
 
-  .line {
-    display: none;
-  }
 
   .background-image {
     height: 100%;
