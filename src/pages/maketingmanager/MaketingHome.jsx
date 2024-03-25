@@ -18,7 +18,10 @@ function MaketingHome() {
     imageUrls: [`url/to/image/file/${index + 1}`],
   }));
 
-  
+  // Handler cho việc thay đổi trang
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <Row justify="center" align="middle" style={{ minHeight: '100vh' }}>
@@ -28,7 +31,6 @@ function MaketingHome() {
             <Button type="primary">Select All</Button>
             <Button type="primary" icon={<DownloadOutlined />}>Download</Button>
           </Space>
-
           <Space direction="vertical" style={{ width: '50%' }} className="post-list">
             {currentPosts.map(post => (
               <Card key={post.id} className="post-card" style={{ width: '200%' }}>
@@ -59,8 +61,15 @@ function MaketingHome() {
               </Card>
             ))}
           </Space>
-
-          
+          <Pagination
+            className="pagination-container"
+            simple
+            current={currentPage}
+            total={totalPosts}
+            pageSize={postsPerPage}
+            onChange={handlePageChange}
+            showSizeChanger={false}
+          />
         </Space>
       </Col>
     </Row>
