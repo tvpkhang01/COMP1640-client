@@ -64,9 +64,7 @@ function LoginPage() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 textAlign: 'center',
-                position: 'relative',
-                marginBottom: '10px',
-
+                position: 'relative',                
               }}
             >
               Login

@@ -1,11 +1,17 @@
-/* CSS */
-@media screen and (max-width: 768px) {
-    .responsive-title {
-      font-size: 24px;
-    }
-  
-    .responsive-text {
-      font-size: 14px;
-    }
+.responsive-title {
+  text-align: center;
+}
+
+.responsive-text {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .responsive-title {
+    font-size: 24px; /* Adjust font size for smaller screens */
   }
-  
+
+  .responsive-text {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
