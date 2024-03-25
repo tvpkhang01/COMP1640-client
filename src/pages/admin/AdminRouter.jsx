@@ -2,7 +2,7 @@ import ReadSemester from './semester/ReadSemester';
 import AdminHome from './AdminHome';
 import ReadUser from './user/ReadUser';
 import CreateSemester from './semester/CreateSemester';
-import DetailSemester from './semester/DetailSemester';
+import UpdateSemester from './semester/UpdateSemester';
 
 
 const AdminRouter = [
@@ -27,7 +27,7 @@ const AdminRouter = [
 			},
 			{
 				path: 'semesterId',
-				element: <DetailSemester />,
+				element: <UpdateSemester />,
 			},
 		],
 	},

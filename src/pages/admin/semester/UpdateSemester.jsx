@@ -1,4 +1,5 @@
 import { DatePicker, Form, Input, Modal, Typography } from 'antd';
+import React from 'react';
 import dayjs from 'dayjs';
 import { useState } from 'react';
 
@@ -6,29 +7,32 @@ const { Item } = Form;
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-function CreateSemester({ isCreateSemesterModalOpen, setIsCreateSemesterModalOpen }) {
+function UpdateSemester({
+	isUpdateSemesterModalOpen,
+	setIsUpdateSemesterModalOpen,
+}) {
 	const [formCreate] = Form.useForm();
 	const [semesterInfo, setSemesterInfo] = useState({});
-	const handleSemesterCreateOk = () => {
+	const handleSemesterUpdateOk = () => {
 		console.log(semesterInfo);
-		setIsCreateSemesterModalOpen(false);
+		setIsUpdateSemesterModalOpen(false);
 		formCreate.resetFields();
 	};
 
-	const handleSemesterCreateCancel = () => {
-		setIsCreateSemesterModalOpen(false);
+	const handleSemesterUpdateCancel = () => {
+		setIsUpdateSemesterModalOpen(false);
 		formCreate.resetFields();
 	};
 	return (
 		<>
 			<Modal
-				open={isCreateSemesterModalOpen}
-				onOk={handleSemesterCreateOk}
-				onCancel={handleSemesterCreateCancel}
+				open={isUpdateSemesterModalOpen}
+				onOk={handleSemesterUpdateOk}
+				onCancel={handleSemesterUpdateCancel}
 				closeIcon={false}
 			>
-				<Form name="createSemester" layout="vertical" form={formCreate}>
-					<Title level={5}>Create new Semester</Title>
+				<Form name="updateSemester" layout="vertical" form={formCreate}>
+					<Title level={5}>Update Semester</Title>
 
 					<Item name="name" label="Name">
 						<Input
@@ -57,4 +61,4 @@ function CreateSemester({ isCreateSemesterModalOpen, setIsCreateSemesterModalOpe
 	);
 }
 
-export default CreateSemester;
+export default UpdateSemester;
