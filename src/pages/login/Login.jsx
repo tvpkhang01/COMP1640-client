@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import { Row, Col, Typography, Input, Button, Select, Divider } from 'antd';
+import { Row, Col, Typography, Input, Button, Select } from 'antd';
 import './Login.css';
+import { usePostAdminAuth } from '../../hooks/useAuth';
 
 const { Title } = Typography;
 const { Option } = Select;
 
-function LoginPage() {
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [role, setRole] = useState(null);
 
+
+function LoginPage() {
   const [user, setUser] = useState({});
 
+  const { 
+    mutate: userLogin
+  } = usePostAdminAuth();
+
   const handleLogin = () => {
+    userLogin({
+      ...user,
+    })
     console.log(user);
   };
 
