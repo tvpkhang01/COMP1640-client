@@ -1,23 +1,34 @@
 import { DatePicker, Form, Input, Modal, Typography } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
+import { usePostSemester } from '../../../hooks/useSemester';
 
 const { Item } = Form;
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
 function CreateSemester({ isCreateSemesterModalOpen, setIsCreateSemesterModalOpen }) {
-	const [formCreate] = Form.useForm();
 	const [semesterInfo, setSemesterInfo] = useState({});
-	const handleSemesterCreateOk = () => {
+
+	const { mutate: createSemester, isError } = usePostSemester();
+
+	const handleSemesterCreateOk = async () => {
 		console.log(semesterInfo);
-		setIsCreateSemesterModalOpen(false);
-		formCreate.resetFields();
+		try {
+			createSemester({
+				...semesterInfo,
+			});
+			setIsCreateSemesterModalOpen(false);
+			setSemesterInfo({});
+		} catch (e) {
+			isError ? console.log(isError) : console.log(e);
+		}
+		
 	};
 
 	const handleSemesterCreateCancel = () => {
 		setIsCreateSemesterModalOpen(false);
-		formCreate.resetFields();
+		setSemesterInfo({});
 	};
 	return (
 		<>
@@ -27,14 +38,14 @@ function CreateSemester({ isCreateSemesterModalOpen, setIsCreateSemesterModalOpe
 				onCancel={handleSemesterCreateCancel}
 				closeIcon={false}
 			>
-				<Form name="createSemester" layout="vertical" form={formCreate}>
+				<Form name="createSemester" layout="vertical">
 					<Title level={5}>Create new Semester</Title>
 
 					<Item name="name" label="Name">
 						<Input
-							value={semesterInfo.name}
+							value={semesterInfo.semesterName}
 							onChange={(e) =>
-								setSemesterInfo({ ...semesterInfo, name: e.target.value })
+								setSemesterInfo({ ...semesterInfo, semesterName: e.target.value })
 							}
 						/>
 					</Item>
