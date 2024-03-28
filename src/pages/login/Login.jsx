@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
-import { Row, Col, Typography, Input, Button, Select, Divider } from 'antd';
-import './LoginPage.css';
+import { Row, Col, Typography, Input, Button, Select } from 'antd';
+import './Login.css';
+import { usePostAdminAuth } from '../../hooks/useAuth';
 
 const { Title } = Typography;
 const { Option } = Select;
 
+
+
 function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState(null);
+  const [user, setUser] = useState({});
+
+  const { 
+    mutate: userLogin
+  } = usePostAdminAuth();
 
   const handleLogin = () => {
-    // Xử lý đăng nhập ở đây
+    userLogin({
+      ...user,
+    })
+    console.log(user);
   };
 
   const handleRoleChange = (value) => {
-    setRole(value);
+    setUser({...user, role: value})
   };
 
   return (
@@ -29,8 +37,8 @@ function LoginPage() {
             <Input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmaeeeil(e.target.value)}
+              value={user.email}
+              onChange={(e) => setUser({...user, email: e.target.value})}
               placeholder="Enter your Email"
               style={{ width: '100%', maxWidth: '350px', padding: '15px', marginBottom: '10px', boxSizing: 'border-box', border: '1px solid #ccc', borderRadius: '10px', opacity: '0.8' }}
             />
@@ -40,15 +48,15 @@ function LoginPage() {
             <Input
               type="password"
               id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={user.password}
+              onChange={(e) => setUser({...user, password: e.target.value})}
               placeholder="Enter your Password"
               style={{ width: '100%', maxWidth: '350px', padding: '15px', marginBottom: '10px', boxSizing: 'border-box', border: '1px solid #ccc', borderRadius: '10px', opacity: '0.8' }}
             />
           </Col>
           <Col span={24} style={{ textAlign: 'center', marginBottom: '2px' }}>
             <Select
-              value={role}
+              value={user.role}
               allowClear={true}
               placeholder="Select a role"
               onChange={handleRoleChange}

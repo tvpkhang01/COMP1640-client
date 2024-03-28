@@ -1,6 +1,6 @@
 import { Typography } from 'antd';
 import { Link } from 'react-router-dom';
-import './AdminPage.css';
+import './AdminHome.css';
 
 const { Title, Text } = Typography;
 

@@ -1,76 +1,69 @@
-import { Breadcrumb, Button, DatePicker, Form, Input, Typography } from 'antd';
+import { DatePicker, Form, Input, Modal, Typography } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { usePostSemester } from '../../../hooks/useSemester';
 
 const { Item } = Form;
-const { Text, Title } = Typography;
+const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-function CreateSemester() {
-	const [form] = Form.useForm();
-	const [semesterInfo, setSemesterInfo] = useState({
-	});
-	const navigate = useNavigate();
-	const createSem = () => {
+function CreateSemester({ isCreateSemesterModalOpen, setIsCreateSemesterModalOpen }) {
+	const [semesterInfo, setSemesterInfo] = useState({});
+
+	const { mutate: createSemester, isError } = usePostSemester();
+
+	const handleSemesterCreateOk = async () => {
 		console.log(semesterInfo);
+		try {
+			createSemester({
+				...semesterInfo,
+			});
+			setIsCreateSemesterModalOpen(false);
+			setSemesterInfo({});
+		} catch (e) {
+			isError ? console.log(isError) : console.log(e);
+		}
+		
 	};
-	const goHome = () => {
-		navigate('/admin');
-	};
-	const goSemester = () => {
-		navigate('/admin/semester');
+
+	const handleSemesterCreateCancel = () => {
+		setIsCreateSemesterModalOpen(false);
+		setSemesterInfo({});
 	};
 	return (
 		<>
-			<Breadcrumb
-				items={[
-					{
-						title: (
-							<Text style={{ cursor: 'pointer' }} onClick={goHome}>
-								Home
-							</Text>
-						),
-					},
-					{
-						title: (
-							<Text style={{ cursor: 'pointer' }} onClick={goSemester}>
-								Semester
-							</Text>
-						),
-					},
-					{
-						title: <Text>Create</Text>,
-					},
-				]}
-			/>
-			<Form name="createSemester" layout="vertical" form={form}>
-				<Title level={5}>Create new Semester</Title>
+			<Modal
+				open={isCreateSemesterModalOpen}
+				onOk={handleSemesterCreateOk}
+				onCancel={handleSemesterCreateCancel}
+				closeIcon={false}
+			>
+				<Form name="createSemester" layout="vertical">
+					<Title level={5}>Create new Semester</Title>
 
-				<Item label="Name">
-					<Input
-						value={semesterInfo.name}
-						onChange={(e) =>
-							setSemesterInfo({ ...semesterInfo, name: e.target.value })
-						}
-					/>
-				</Item>
-				<Item label="Date">
-					<RangePicker
-						value={[semesterInfo.startDate, semesterInfo.endDate]}
-						onChange={(e) =>
-							setSemesterInfo({
-								...semesterInfo,
-								startDate: dayjs(e[0]),
-								endDate: dayjs(e[1]),
-							})
-						}
-					/>
-				</Item>
-				<Button type="primary" onClick={createSem}>
-					Create
-				</Button>
-			</Form>
+					<Item name="name" label="Name">
+						<Input
+							value={semesterInfo.semesterName}
+							onChange={(e) =>
+								setSemesterInfo({ ...semesterInfo, semesterName: e.target.value })
+							}
+						/>
+					</Item>
+					<Item name="date" label="Date">
+						<RangePicker
+							value={[semesterInfo.startDate, semesterInfo.endDate]}
+							onChange={(e) =>
+								setSemesterInfo({
+									...semesterInfo,
+									startDate: dayjs(e[0]),
+									endDate: dayjs(e[1]),
+								})
+							}
+							style={{ width: '100%' }}
+						/>
+					</Item>
+				</Form>
+			</Modal>
 		</>
 	);
 }

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Typography, Card, Avatar, Space, Pagination, Button, Image, Row, Col } from 'antd';
 import { FileTextOutlined, DownloadOutlined } from '@ant-design/icons';
-import './MaketingHome.css';
+import './MMHome.css';
 
 const { Title, Text } = Typography;
 
-function MaketingHome() {
+function MMHome() {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPosts = 30; 
   const postsPerPage = 10;
@@ -76,4 +76,4 @@ function MaketingHome() {
   );
 }
 
-export default MaketingHome;
+export default MMHome;
