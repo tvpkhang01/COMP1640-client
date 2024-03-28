@@ -2,8 +2,8 @@ import { createBrowserRouter, Outlet } from 'react-router-dom';
 import Login from '../pages/login/Login';
 import ErrorPage from '../pages/ErrorPage';
 import MainLayout from '../components/layout/MainLayout';
-import MMHome from '../pages/mm/MMHome';
 import AdminRouter from '../pages/admin/AdminRouter'
+import MMRouter from '../pages/maketingmanager/MMRouter';
 
 const Router = createBrowserRouter([
 	{
@@ -15,8 +15,8 @@ const Router = createBrowserRouter([
 				element: <MainLayout />,
 				children: [
 					{
-						path: '',
-						element: <MMHome />,
+						path: 'mm',
+						children: [...MMRouter]
 					},
 					{
 						path: 'admin',
@@ -28,6 +28,7 @@ const Router = createBrowserRouter([
 				path: 'login',
 				element: <Login />,
 			},
+			
 		],
 	},
 	
