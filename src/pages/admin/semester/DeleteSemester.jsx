@@ -14,6 +14,7 @@ function DeleteSemester({
 	const handleDeleteSemesterOk = () => {
 		try {
 			deleteSemester();
+			setIsDeleteSemesterModalOpen(false);
 		} catch (e) {
 			isError ? console.log(isError) : console.log(e);
 		}

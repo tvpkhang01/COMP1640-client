@@ -21,17 +21,17 @@ function UpdateSemester({
 	const { mutate: updateSemester, isError } = usePatchSemester(semesterId);
 
 	const semesterData = {
-		semesterName: semester?.semesterName,
-		date: [dayjs(semester?.startDate), dayjs(semester?.endDate)],
+		updateSemesterName: semester?.semesterName,
+		updateSemesterDate: [dayjs(semester?.startDate), dayjs(semester?.endDate)],
 	};
 
 	const handleSemesterUpdateOk = async () => {
 		try {
 			const formData = await formUpdate.validateFields();
 			updateSemester({
-				semesterName: formData.semesterName,
-				startDate: formData.date[0],
-				endDate: formData.date[1],
+				semesterName: formData.updateSemesterName,
+				startDate: formData.updateSemesterDate[0],
+				endDate: formData.updateSemesterDate[1],
 			});
 			formUpdate.resetFields();
 		} catch (e) {
@@ -60,10 +60,10 @@ function UpdateSemester({
 				>
 					<Title level={5}>Update Semester</Title>
 
-					<Item name="semesterName" label="Name">
+					<Item name="updateSemesterName" label="Name">
 						<Input />
 					</Item>
-					<Item name="date" label="Date">
+					<Item name="updateSemesterDate" label="Date">
 						<RangePicker style={{ width: '100%' }} />
 					</Item>
 				</Form>
