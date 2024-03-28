@@ -12,47 +12,21 @@ const { Title, Text } = Typography;
 function ReadSemester() {
 	const [isCreateSemesterModalOpen, setIsCreateSemesterModalOpen] =
 		useState(false);
-	const [isUpdateSemesterModalOpen, setIsUpdateSemesterModalOpen] =
-		useState(false);
+	const [isUpdateSemesterModalOpen, setIsUpdateSemesterModalOpen] = useState(
+		{}
+	);
 
-	const [isDeleteSemesterModalOpen, setIsDeleteSemesterModalOpen] =
-		useState(false);
+	const [isDeleteSemesterModalOpen, setIsDeleteSemesterModalOpen] = useState(
+		{}
+	);
 
 	const { data: semesters, isError } = useGetSemesters();
 
 	const handleSearchSemester = () => {};
-
-	const navigate = useNavigate();
-	const goHome = () => {
-		navigate('/admin');
-	};
-	const goSemester = () => {
-		navigate('/admin/semester');
-	};
 	return (
 		<>
-			<Breadcrumb
-				items={[
-					{
-						title: (
-							<Text style={{ cursor: 'pointer' }} onClick={goHome}>
-								Home
-							</Text>
-						),
-					},
-					{
-						title: (
-							<Text style={{ cursor: 'pointer' }} onClick={goSemester}>
-								Semester
-							</Text>
-						),
-					},
-				]}
-				style={{ marginLeft: '20px' }}
-			/>
-			<Title level={2}>Semester</Title>
-
 			<Row gutter={16} style={{ margin: 'auto', width: '50%' }}>
+				<Title level={2}>Semester</Title>
 				<Col span={24} style={{ margin: '10px' }}>
 					<Input onClick={handleSearchSemester}></Input>
 				</Col>
@@ -97,8 +71,8 @@ function ReadSemester() {
 									</Col>
 									<Col span={8} offset={8}>
 										<Title level={5}>
-											Created At:{' '}
-											{dayjs(semester.createdAt).format('DD-MM-YYYY')}
+											Updated At:{' '}
+											{dayjs(semester.updatedAt).format('DD-MM-YYYY')}
 										</Title>
 									</Col>
 
@@ -120,30 +94,50 @@ function ReadSemester() {
 									<Button
 										style={{ width: '100%', margin: '10px 10px 10px 0' }}
 										onClick={() => {
-											setIsUpdateSemesterModalOpen(true);
+											setIsUpdateSemesterModalOpen((prev) => ({
+												...prev,
+												[semester.id]: true,
+											}));
 										}}
 									>
 										Edit
 									</Button>
 									<UpdateSemester
 										semesterId={semester.id}
-										isUpdateSemesterModalOpen={isUpdateSemesterModalOpen}
-										setIsUpdateSemesterModalOpen={setIsUpdateSemesterModalOpen}
+										isUpdateSemesterModalOpen={
+											isUpdateSemesterModalOpen[semester.id]
+										}
+										setIsUpdateSemesterModalOpen={(value) =>
+											setIsUpdateSemesterModalOpen((prev) => ({
+												...prev,
+												[semester.id]: value,
+											}))
+										}
 									/>
 								</Col>
 								<Col span={6}>
 									<Button
 										style={{ width: '100%', margin: '10px 10px 10px 0' }}
 										onClick={() => {
-											setIsDeleteSemesterModalOpen(true);
+											setIsDeleteSemesterModalOpen((prev) => ({
+												...prev,
+												[semester.id]: true,
+											}));
 										}}
 									>
 										Delete
 									</Button>
 									<DeleteSemester
 										semesterId={semester.id}
-										isDeleteSemesterModalOpen={isDeleteSemesterModalOpen}
-										setIsDeleteSemesterModalOpen={setIsDeleteSemesterModalOpen}
+										isDeleteSemesterModalOpen={
+											isDeleteSemesterModalOpen[semester.id]
+										}
+										setIsDeleteSemesterModalOpen={(value) =>
+											setIsDeleteSemesterModalOpen((prev) => ({
+												...prev,
+												[semester.id]: value,
+											}))
+										}
 									/>
 								</Col>
 							</Row>

@@ -4,7 +4,7 @@ import {
 	getSemesterAPI,
 	getSemesterDetailAPI,
 	patchSemesterAPI,
-	deleteSemsesterAPI,
+	deleteSemesterAPI,
 } from '../api/apiUrl';
 import { QUERY_KEY } from '../constants/queryKey';
 
@@ -14,10 +14,10 @@ export const usePostSemester = () => {
 		mutationFn: (createSemester) => postSemesterAPI(createSemester),
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: [QUERY_KEY.SEMESTER] });
-			console.log('Success');
+			console.log('Create Success');
 		},
 		onError: ({ response }) => {
-			console.log('Error: ' + response);
+			console.log(response);
 		},
 	});
 
@@ -44,17 +44,14 @@ export const useGetSemesterDetail = (id) =>
 
 export const usePatchSemester = (id) => {
 	const queryClient = useQueryClient();
-	const editSemesterData = async ({semesterName, startDate, endDate}) => {
-		await patchSemesterAPI(id, { semesterName, startDate, endDate});
-	}
 	const mutation = useMutation({
-		mutationFn: editSemesterData,
+		mutationFn: (updateSemester) => patchSemesterAPI(id, updateSemester),
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: [QUERY_KEY.SEMESTER] });
 			console.log('Update Success');
 		},
 		onError: ({ response }) => {
-			console.log('Error: ' + response);
+			console.log(response);
 		},
 	});
 
@@ -64,13 +61,13 @@ export const usePatchSemester = (id) => {
 export const useDeleteSemester = (id) => {
 	const queryClient = useQueryClient();
 	const mutation = useMutation({
-		mutationFn: () => deleteSemsesterAPI(id),
+		mutationFn: () => deleteSemesterAPI(id),
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: [QUERY_KEY.SEMESTER] });
 			console.log('Delete Success');
 		},
 		onError: ({ response }) => {
-			console.log('Error: ' + response);
+			console.log(response);
 		},
 	});
 

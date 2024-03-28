@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient();
 
 axios.defaults.baseURL = 'http://localhost:3000/api';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<QueryClientProvider client={queryClient}>
 		<Suspense fallback={<div>Loading...</div>}>

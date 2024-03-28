@@ -7,28 +7,31 @@ const { Item } = Form;
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-function CreateSemester({ isCreateSemesterModalOpen, setIsCreateSemesterModalOpen }) {
-	const [semesterInfo, setSemesterInfo] = useState({});
+function CreateSemester({
+	isCreateSemesterModalOpen,
+	setIsCreateSemesterModalOpen,
+}) {
+	const [formCreate] = Form.useForm();
 
 	const { mutate: createSemester, isError } = usePostSemester();
 
 	const handleSemesterCreateOk = async () => {
-		console.log(semesterInfo);
+		const formData = await formCreate.validateFields();
 		try {
 			createSemester({
-				...semesterInfo,
+				semesterName: formData.createSemesterName,
+				startDate: formData.createSemesterDate[0],
+				endDate: formData.createSemesterDate[1],
 			});
+			formCreate.resetFields();
 			setIsCreateSemesterModalOpen(false);
-			setSemesterInfo({});
 		} catch (e) {
 			isError ? console.log(isError) : console.log(e);
 		}
-		
 	};
 
 	const handleSemesterCreateCancel = () => {
 		setIsCreateSemesterModalOpen(false);
-		setSemesterInfo({});
 	};
 	return (
 		<>
@@ -38,29 +41,14 @@ function CreateSemester({ isCreateSemesterModalOpen, setIsCreateSemesterModalOpe
 				onCancel={handleSemesterCreateCancel}
 				closeIcon={false}
 			>
-				<Form name="createSemester" layout="vertical">
+				<Form name="createSemester" layout="vertical" form={formCreate}>
 					<Title level={5}>Create new Semester</Title>
 
-					<Item name="name" label="Name">
-						<Input
-							value={semesterInfo.semesterName}
-							onChange={(e) =>
-								setSemesterInfo({ ...semesterInfo, semesterName: e.target.value })
-							}
-						/>
+					<Item name="createSemesterName" label="Name">
+						<Input />
 					</Item>
-					<Item name="date" label="Date">
-						<RangePicker
-							value={[semesterInfo.startDate, semesterInfo.endDate]}
-							onChange={(e) =>
-								setSemesterInfo({
-									...semesterInfo,
-									startDate: dayjs(e[0]),
-									endDate: dayjs(e[1]),
-								})
-							}
-							style={{ width: '100%' }}
-						/>
+					<Item name="createSemesterDate" label="Date">
+						<RangePicker style={{ width: '100%' }} />
 					</Item>
 				</Form>
 			</Modal>

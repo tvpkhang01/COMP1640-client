@@ -16,20 +16,7 @@ const AdminRouter = [
 	},
 	{
 		path: 'semester',
-		children: [
-			{
-				path: '',
-				element: <ReadSemester />,
-			},
-			{
-				path: 'create',
-				element: <CreateSemester />,
-			},
-			{
-				path: 'semesterId',
-				element: <UpdateSemester />,
-			},
-		],
+		element: <ReadSemester />,
 	},
 ];
 
